@@ -6,12 +6,16 @@ export interface DataSlice {
   value: boolean;
   navCate: string;
   productId: number;
+  showCart: boolean;
+  showProduct: boolean;
 }
 
 const initialState: DataSlice = {
   value: false,
   navCate: '',
-  productId: 0
+  productId: 0,
+  showCart: false,
+  showProduct: false
 };
 
 
@@ -30,11 +34,17 @@ export const DataSlice = createSlice({
     },
     prodId: (state,action: PayloadAction<number>) => {
       state.productId = action.payload
+    },
+    showCartFunc:(state, action:PayloadAction<boolean>) =>{
+      state.showCart = action.payload
+    },
+    showProductFunc:(state, action:PayloadAction<boolean>) =>{
+      state.showProduct = action.payload
     }
   },
 });
 
-export const { showNav, hideNav, category, prodId } = DataSlice.actions;
+export const { showNav, hideNav, category, prodId, showCartFunc, showProductFunc } = DataSlice.actions;
 
 // export const selectCount = (state: RootState) => state.counter.value;
 

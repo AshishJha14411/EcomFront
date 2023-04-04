@@ -14,7 +14,7 @@ const Card = ({ customdata }: { customdata: productsData }) => {
          {customdata && customdata.map((item) => {
             return (
                <div className='bg-[#FFFFFF] p-[2rem]' key={item.id} >
-                  <div onClick={() => {
+                 {/*  <div onClick={() => {
                   dispatch(prodId(item.id))
                   navigate('/product')
                   dispatch(category(''))
@@ -32,7 +32,7 @@ const Card = ({ customdata }: { customdata: productsData }) => {
                   <div className='w-[100%] flex flex-row justify-between text-xl pt-9'>
                      <h2 className='text-[#e35a38] font-bold cursor-pointer hover:text-[#000000]' onClick={() => dispatch(addToCart(item))}>Add to Cart</h2>
                      <p className='hover:text-[#e35a38] text-[#000000] cursor-pointer' onClick={() => dispatch(removeItem(item.id))}>Explore More</p>
-                  </div>
+                  </div> */}
                </div>
             )
          })}

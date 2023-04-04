@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction, current } from '@reduxjs/toolkit';
-import { useGetProductsAllQuery } from './fetchProdData';
+import { useGetProductsAllQuery } from './ApiQueries';
 import { productsData } from './types';
 
 interface CartStates {
