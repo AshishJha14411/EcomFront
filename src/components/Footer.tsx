@@ -11,7 +11,7 @@ const Footer = () => {
                         <span className="font-bold text-[#e35a38] hover:text-[#ffffff]" id="basic-addon2"><a href="#">SUBSCRIBE</a></span>
                     </div>
                     <div className="footer_menu  border-t-2 border-b-2 p-5">
-                        <ul className='flex flex-col content'>
+                        <ul className='flex flex-col xl:flex-row xl:justify-between xl:w-[60%] mx-auto content'>
                             <li className='p-2 hover:text-[#e35a38]'><a href="#">Best Sellers</a></li>
                             <li className='p-2  hover:text-[#e35a38]'><a href="#">Gift Ideas</a></li>
                             <li className='p-2  hover:text-[#e35a38]'><a href="#">New Releases</a></li>
