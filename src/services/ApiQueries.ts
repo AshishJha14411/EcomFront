@@ -30,4 +30,4 @@ export const fetchData = createApi({
 })
 
 
-export const {useGetProductsAllQuery,useGetAllCategoryQuery, useGetSingleCatergoryQuery} = fetchData
+export const {useGetProductsAllQuery,useGetAllCategoryQuery,useGetSingleProductQuery, useGetSingleCatergoryQuery} = fetchData
