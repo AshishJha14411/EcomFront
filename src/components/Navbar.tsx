@@ -16,7 +16,7 @@ const Navbar = () => {
             const formatData = data.map((item) => item[0].toUpperCase() + item.substring(1))
             setNavList(formatData)
         }
-        console.log(navList)
+        // console.log(navList)
     }, [data])
     /* 
     console.log(dispatch) */
@@ -33,6 +33,7 @@ const Navbar = () => {
                     <li className='pb-5 cursor-pointer' onClick={() => {
                         dispatch(showCartFunc(false))
                         dispatch(showProductFunc(false))
+                        dispatch(category(''))
                         navigate('/')
                     }}>Home</li>
                     {navList && navList.map((item, idx) => {
