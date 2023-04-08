@@ -8,7 +8,6 @@ const Card = ({ customdata }: { customdata: productsData }) => {
    const { products } = useAppSelector((state) => state.CartStates)
 //    const { productId } = useAppSelector((state) => state.DataSlice)
    const dispatch = useAppDispatch()
-   console.log(products)
    return (
       <div className='w-[100%]  p-4 flex cursor-pointer flex-wrap flex-col mx-auto lg:flex-row lg:justify-around items-center' >
          {customdata && customdata.map((item) => {
@@ -20,7 +19,6 @@ const Card = ({ customdata }: { customdata: productsData }) => {
                   dispatch(category(''))
                   dispatch(showCartFunc(false))
                   dispatch(showCartFunc(true))
-                  console.log('first')
                }}>
 
                      <div>
