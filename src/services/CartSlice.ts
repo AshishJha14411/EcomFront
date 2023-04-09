@@ -1,15 +1,10 @@
 import { createSlice, PayloadAction, current } from '@reduxjs/toolkit';
 import { useGetProductsAllQuery } from './ApiQueries';
-import { productsData } from './types';
+import { productsData,CartState } from './type';
 
-interface CartStates {
-  products: productsData | any;
-  total: number;
-}
-const initialState: CartStates = {
-  products: localStorage.getItem("products")
-  ? JSON.parse(localStorage.getItem("products"))
-  : [],
+
+const initialState: CartState = {
+  products: [],
   total: 0,
 };
 /* eslint-disable */
@@ -17,7 +12,7 @@ export const CartStates = createSlice({
     name: 'cartData',
     initialState,
     reducers: {
-        addToCart: (state,action: PayloadAction<productsData>) => {
+        addToCart: (state,action: PayloadAction<CartState>) => {
           const existingItem = state.products.find((item) => item.id === action.payload.id)
           if(existingItem){
             existingItem.quantity++
@@ -46,7 +41,7 @@ export const CartStates = createSlice({
     
 })
 
-export const { addToCart, removeItem } = CartStates.actions;
+export const { addToCart, removeItem, incrementQuantity, decrementQuantity } = CartStates.actions;
 
 export default CartStates.reducer;
 /* eslint-disable */

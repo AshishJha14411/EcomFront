@@ -22,4 +22,7 @@ export type productsData = [
       skip: number,
       limit: number
   }
-  
+  export type CartState = {
+    products: productsData | any;
+    total: number | 0;
+  }
