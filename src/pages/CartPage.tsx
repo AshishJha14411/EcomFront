@@ -20,16 +20,17 @@ const Cart = () => {
   // console.log(products)
   return (
     <div className='bg-[#ddd8d8] flex xl:flex-row flex-col mx-auto '>
-      <div className='p-[1rem] bg-[#ffffff] m-[4rem] xl:w-[50%] w-[80%] mx-auto'>
+      <div className='p-[1rem] bg-[#ffffff] m-[4rem] xl:w-[60%] border w-[80%] mx-auto'>
         {products.length!==0 ? products.map((item) => {
           return (
 
             <div className='flex xl:flex-row flex-col justify-between py-6 border-b-2 border-[#E65A38]'>
-              <div className='flex xl:flex-row flex-col '>
+              <div className='flex xl:flex-row xl:w-[50%] flex-col '>
 
                 <img src={item.images[0]} alt={item.title} className='w-[10rem] cursor-pointer h-[10rem]' onClick={() => {
                   dispatch(prodId(item.id))
                   navigate('/product')
+                  dispatch(hideNav())
                 }} />
                 <div className='flex-flex-col content-between pl-7'>
                   <p className='font-semibold lg:text-xl text-lg'>Name: <span className='font-semibold text-xl lg:text-2xl'>{item.title}</span></p>
@@ -44,9 +45,9 @@ const Cart = () => {
                   <p className='font-bold text-[#E65A38]'>Save: ${Math.round(item.price * (item.discountPercentage / 100)).toFixed(2)}</p>
                 </div>
               </div>
-              <div className='p-4 xl:w-[40%] w-[100%] flex  xl:flex-col flex-row'>
+              <div className='p-4 xl:w-[40%] w-[100%] flex border  xl:flex-col flex-row'>
 
-                <p className='mb-5 flex flex-row  pt-4'>Quantity:
+                <p className='mb-5 flex flex-row w-full  pt-4'>Quantity:
                   <button className='px-3 py-1 ml-3 bg-[#E65A38] mr-2 xl:h-[2rem]' onClick={() => {
                     dispatch(decrementQuantity(item.id))
                   }}>-</button>
