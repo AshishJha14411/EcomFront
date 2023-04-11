@@ -8,6 +8,7 @@ export interface DataSlice {
   productId: number;
   showCart: boolean;
   showProduct: boolean;
+  searchQuery: string;
 }
 
 const initialState: DataSlice = {
@@ -15,7 +16,8 @@ const initialState: DataSlice = {
   navCate: '',
   productId: 0,
   showCart: false,
-  showProduct: false
+  showProduct: false,
+  searchQuery: ''
 };
 
 
@@ -40,11 +42,14 @@ export const DataSlice = createSlice({
     },
     showProductFunc:(state, action:PayloadAction<boolean>) =>{
       state.showProduct = action.payload
+    },
+    setQuery: (state,action:PayloadAction<string>) => {
+      state.searchQuery = action.payload
     }
   },
 });
 
-export const { showNav, hideNav, category, prodId, showCartFunc, showProductFunc } = DataSlice.actions;
+export const { showNav, hideNav, category, prodId, showCartFunc, showProductFunc, setQuery } = DataSlice.actions;
 
 // export const selectCount = (state: RootState) => state.counter.value;
 

@@ -15,19 +15,22 @@ export const fetchData = createApi({
         getSingleProduct: builder.query<JsonObj[], void>({
             query:(id) =>  `products/${id}`
         }),
-    /*     getAllCatergory: builder.query<string[],void>({
-            query:() => `products/categories`
-        }), */
+        getCaroProducts: builder.query<string[],void>({
+            query:() => `products?limit=50`
+        }),
         getAllCategory: builder.query<string[], void>({
             query: () => `products/categories`
         }),
         getSingleCatergory: builder.query<productsData[], string>({
             query:(cate) =>  `/products/category/${cate}`
           
+        }),
+        getSearchData: builder.query<productsData[],string>({
+            query:(searchQuery) => `products/search?q=${searchQuery}`
         })
 
     })
 })
 
 
-export const {useGetProductsAllQuery,useGetAllCategoryQuery,useGetSingleProductQuery, useGetSingleCatergoryQuery} = fetchData
+export const {useGetProductsAllQuery,useGetAllCategoryQuery,useGetSingleProductQuery, useGetSingleCatergoryQuery, useGetCaroProductsQuery,useLazyGetSearchDataQuery} = fetchData
