@@ -4,6 +4,7 @@ import { productsData } from '../services/type';
 import { useEffect, useState } from 'react';
 import { incrementQuantity, decrementQuantity, addToCart, CartStates } from '../services/CartSlice';
 import { useNavigate } from 'react-router-dom';
+import { hideNav } from '../services/DataSlice';
 
 const ProductPage = () => {
   
@@ -26,9 +27,9 @@ const ProductPage = () => {
     <div className=''>
       {data?
         <div className='flex lg:flex-row flex-col'>
-          <div className='flex flex-col p-9 lg:w-[40%] w-[70%] lg:pl-[10%]'>
-            <div className='w-[100%] h-[100%] ml-[30%]'>
-            <img src={imageState} alt="main image" className='w-[80%] h-[100%] rounded-lg' />
+          <div className='flex flex-col p-9 lg:w-[50%] w-[70%] lg:pl-[10%]'>
+            <div className='w-[100%] h-[100%] ml-[30%] lg:ml-[0] '>
+            <img src={imageState} alt="main image" className='w-[80%] h-[100%] rounded-lg lg:ml-[30%] xl:ml-[20%]' />
             </div>
             <div className='w-[100%] pt-[3rem] ml-[5rem] flex flex-row'>
               {data.images && data.images.map((item) => {
@@ -57,6 +58,7 @@ const ProductPage = () => {
                 <button className='text-sm w-[10rem] font-bold text-[#ffffff] bg-[#E65A38] transition ease-in-out delay-150 hover:bg-[#000000] hover:text-[#E65A38] py-3 px-6' onClick={() => {
                   navigate('/cart')
                   dispatch(addToCart(data))
+                  dispatch(hideNav())
                   } }>Buy Now</button>
                 <button className='text-sm ml-[1rem] w-[15rem] font-bold transition ease-in delay-150 text-[#ffffff] bg-[#E65A38] hover:bg-[#000000] hover:text-[#E65A38] py-3 px-6' onClick={() => dispatch(addToCart(data))}>Add To Cart</button>
               </div>
