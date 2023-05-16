@@ -18,13 +18,11 @@ function App() {
     <div className="App">
       <Navbar />
       {showCart || showProduct ?
-        <div className='bg-[#E6B94A]'>
+        <div className='bg-[#E6B94A] xl:h-[20rem] h-[15rem] 2xl:h-[30rem]'>
           <SearchSection />
         </div> :
         <div className='background'>
           <SearchSection />
-          <Carousel />
-
         </div>
       }
       <Routes>
