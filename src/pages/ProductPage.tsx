@@ -18,7 +18,8 @@ const ProductPage = () => {
   const navigate = useNavigate()
   useEffect(() => {
   if(data && imageState===''){
-    setImageState(data.images[0])
+    console.log(data)
+    setImageState(data?.images[1])
   }
 
   }, [imageState, data])
@@ -29,13 +30,13 @@ const ProductPage = () => {
         <div className='flex lg:flex-row flex-col'>
           <div className='flex flex-col p-9 lg:w-[50%] w-[70%] lg:pl-[10%]'>
             <div className='w-[100%] h-[100%] ml-[30%] lg:ml-[0] '>
-            <img src={imageState} alt="main image" className='w-[80%] h-[100%] rounded-lg lg:ml-[30%] xl:ml-[20%]' />
+            <img src={imageState} alt="main image" className='w-[80%] contain h-[100%] rounded-lg lg:ml-[30%] xl:ml-[20%]' />
             </div>
             <div className='w-[100%] pt-[3rem] ml-[5rem] flex flex-row'>
               {data.images && data.images.map((item) => {
                 return (
                   <div className={`flex flex-row  justify-start mt-2 ${imageState === item ? 'border-4 border-[#E6B94A]' : ''}  w-[100%] h-[80%] p-4`}>
-                    <img src={item} alt="" onClick={() => {
+                    <img src={item} alt="" className='bg-contain bg-center' onClick={() => {
                       setImageState(item)
                     }
                     } />

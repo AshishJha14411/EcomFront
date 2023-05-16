@@ -11,21 +11,24 @@ const CatePages = () => {
     const { navCate } = useAppSelector((state) => state.DataSlice);
     const { data } = useGetSingleCatergoryQuery(navCate)
 
-    const [cateProd,setCateProd] = useState<productsData>()
+    const [cateProd,setCateProd] = useState<productsData[]>([])
     useEffect(() => {
-        if(data){
-            setCateProd(data.products)
+      if(data){
+        // data is an array of JsonObj. If you are expecting only one element in this array, you can do:
+        const products = data.products;
+        if (products) {
+            setCateProd(products);
         }
+    }
         console.log(navCate)
         console.log(cateProd)
     },[data, cateProd])
   return (
     <div>
         <Navbar />
-        <>
+        <div className='mt-[18rem]'>
            {data?  <Card customdata={cateProd}/>: <h1>Loading</h1>}
-        </>
-        <Footer />
+        </div>
     </div>
   )
 }

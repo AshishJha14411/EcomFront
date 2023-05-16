@@ -9,10 +9,10 @@ export const fetchData = createApi({
     reducerPath: 'fetchData',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com/'}),
     endpoints: (builder) => ({
-        getProductsAll: builder.query<JsonObj[], void>({
+        getProductsAll: builder.query<JsonObj, void>({
             query: () => `products?limit=100`,
         }),
-        getSingleProduct: builder.query<JsonObj[], void>({
+        getSingleProduct: builder.query<productsData, number>({
             query:(id) =>  `products/${id}`
         }),
         getCaroProducts: builder.query<string[],void>({
@@ -21,7 +21,7 @@ export const fetchData = createApi({
         getAllCategory: builder.query<string[], void>({
             query: () => `products/categories`
         }),
-        getSingleCatergory: builder.query<productsData[], string>({
+        getSingleCatergory: builder.query<JsonObj, string>({
             query:(cate) =>  `/products/category/${cate}`
           
         }),

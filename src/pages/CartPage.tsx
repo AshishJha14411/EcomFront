@@ -4,18 +4,18 @@ import { productsData } from '../services/type';
 import { useEffect } from 'react';
 import { incrementQuantity, decrementQuantity, removeItem, clearCart } from '../services/CartSlice';
 import { useNavigate } from 'react-router-dom';
-import { prodId } from '../services/DataSlice';
+import { hideNav, prodId } from '../services/DataSlice';
 const Cart = () => {
 
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const { products } = useAppSelector((state) => state.CartStates)
-  const [cartDetails, setCartDetails] = useState<productsData>()
+  const [cartDetails, setCartDetails] = useState<productsData[]>([])
   useEffect(() => {
     if (products) {
       setCartDetails(products)
     }
-  }, [])
+  }, [products])
   // console.log(cartDetails)
   // console.log(products)
   return (
@@ -27,7 +27,7 @@ const Cart = () => {
             <div className='flex xl:flex-row flex-col justify-between py-6 border-b-2 border-[#E65A38]'>
               <div className='flex xl:flex-row xl:w-[50%] flex-col '>
 
-                <img src={item.images[0]} alt={item.title} className='w-[10rem] cursor-pointer h-[10rem]' onClick={() => {
+                <img src={item.images&& item.images[0]} alt={item.title} className='w-[10rem] cursor-pointer h-[10rem]' onClick={() => {
                   dispatch(prodId(item.id))
                   navigate('/product')
                   dispatch(hideNav())

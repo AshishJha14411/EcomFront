@@ -1,19 +1,19 @@
-export type productsData = [
+export type productsData = 
     {
-      id?: number | undefined,
-      title?: string | undefined,
-      description?: string | undefined,
-      price?: number | undefined,
-      discountPercentage?: number | undefined,
-      rating?: number | undefined,
-      stock?: number| undefined,
-      brand?: string | undefined,
-      category?: string | undefined,
-      thumbnail?: string | undefined,
-      images?:string[] | undefined
+      id: number | 0,
+      title?: string ,
+      description?: string,
+      price: number ,
+      discountPercentage: number ,
+      rating?: number,
+      stock?: number,
+      brand?: string ,
+      category?: string ,
+      thumbnail?: string ,
+      images:string[] 
       quantity?: number | 0
     }
-  ]
+  
   
   
   export interface JsonObj {
@@ -23,6 +23,6 @@ export type productsData = [
       limit: number
   }
   export type CartState = {
-    products: productsData | any;
+    products: (productsData & { quantity: number })[];
     total: number | 0;
   }
