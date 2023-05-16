@@ -3,7 +3,27 @@
 @tailwind utilities;
 
 body {
-  background-color: #f9f9f9;
+  background: hsla(42, 76%, 58%, 1);
+
+  background: linear-gradient(
+    180deg,
+    hsla(42, 76%, 58%, 1) 20%,
+    hsla(0, 0%, 100%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    180deg,
+    hsla(42, 76%, 58%, 1) 20%,
+    hsla(0, 0%, 100%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    180deg,
+    hsla(42, 76%, 58%, 1) 20%,
+    hsla(0, 0%, 100%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E5B542", endColorstr="#FFFFFF", GradientType=1 );
 }
 .background {
   background-image: url(./assets/banner-bg.png);
@@ -12,6 +32,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.97;
+  z-index: -1;
 }
 .slick-track {
   max-width: 100vw !important;
