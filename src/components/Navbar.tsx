@@ -10,10 +10,10 @@ const Navbar = () => {
     const { data } = useGetAllCategoryQuery()
     const navigate = useNavigate()
     const dispatch = useAppDispatch();
-    const [navList, setNavList] = useState<string>('')
+    const [navList, setNavList] = useState<string[]>([])
     useEffect(() => {
         if (data) {
-            const formatData = data.map((item) => item[0].toUpperCase() + item.substring(1))
+            const formatData = data.map((item: any) => item[0].toUpperCase() + item.substring(1))
             setNavList(formatData)
         }
         // console.log(navList)
